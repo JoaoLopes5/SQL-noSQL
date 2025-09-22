@@ -1,15 +1,20 @@
 // Exercício 1
 
+// Faça uma consulta que retorne a lista de atores que atuaram em filmes com mais de duas horas de duração (120min). Ordene a lista pelo numero de filmes que cada ator participou. 
 db.biblioteca.find({pageCount:{$lt: 300}, status: "NOT PUBLISH"}).count()
 
+// Faça uma busca de livros que contém as palavras MongoDB e SQL Server no título.
 db.biblioteca.find({title: {$in: ["MongoDB", "SQL Server"]}},{title: 1})
 
+// Faça uma busca com expressão regular onde ISBN começa com 18.
 db.biblioteca.find({isbn: {$regex: /18./}})
 
+// Usando Expressão Regular, busque livros que contém a palavra JAVA ou Mobile na descrição do livro (LongDescription), lembrando que deve trazer todas as palavras independente de começa com maiúsculo ou minúsculo .
 db.biblioteca.find({LongDescription: {$regex: /JAVA|Mobile/i}})
 
 // Exercício 2
 
+// Nas mesmas buscas do exercício anterior, traga apenas o número do resultado usando o contador.
 db.biblioteca.find({title: {$in: ["MongoDB", "SQL Server"]}},{title: 1}).count()
 
 db.biblioteca.find({isbn: {$regex: /18./}}).count()
