@@ -1,17 +1,21 @@
 -- Exercício 1
-
+-- Faça uma consulta que retorne a lista de filmes e suas categorias correspondentes.
+    
 select film_category.category_id, film.title from film_category
     inner join  film 
         on film_category.film_id=film.film_id
     order by film.title
 
-
+--  Faça uma consulta que retorne a lista de filmes e suas categorias correspondentes.
+    
 Select ac.first_name, count(a.film_id) as NumberOfFilms
     from film_actor a
     JOIN actor ac ON a.actor_id = ac.actor_id
     group by a.actor_id, ac.first_name
     order by NumberOfFilms DESC
-
+    
+-- Faça uma consulta que retorne a lista de atores que atuaram em filmes com mais de duas horas de duração (120min). Ordene a lista pelo numero de filmes que cada ator participou. 
+    
 SELECT ac.first_name, COUNT(fa.film_id) AS NumberOfFilms
 FROM actor ac
 JOIN film_actor fa ON ac.actor_id = fa.actor_id
@@ -21,6 +25,7 @@ GROUP BY ac.actor_id, ac.first_name, ac.last_name
 ORDER BY NumberOfFilms DESC;
 
 --Exercício 2
+-- Faça uma consulta que retorne a lista de atores que atuaram em filmes com mais de duas horas de duração (120min). Ordene a lista pelo numero de filmes que cada ator participou. 
 
 SELECT COUNT(*) AS TotalFilms
 FROM film_category
