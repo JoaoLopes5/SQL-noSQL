@@ -1,0 +1,17 @@
+// Exercício 1
+
+db.biblioteca.find({pageCount:{$lt: 300}, status: "NOT PUBLISH"}).count()
+
+db.biblioteca.find({title: {$in: ["MongoDB", "SQL Server"]}},{title: 1})
+
+db.biblioteca.find({isbn: {$regex: /18./}})
+
+db.biblioteca.find({LongDescription: {$regex: /JAVA|Mobile/i}})
+
+// Exercício 2
+
+db.biblioteca.find({title: {$in: ["MongoDB", "SQL Server"]}},{title: 1}).count()
+
+db.biblioteca.find({isbn: {$regex: /18./}}).count()
+
+db.biblioteca.find({LongDescription: {$regex: /JAVA|Mobile/i}}).count()
